@@ -175,7 +175,7 @@ export default function BranchPreview() {
                       <TableCell>{fullName}</TableCell>
                       <TableCell>{member.email}</TableCell>
                       <TableCell>{member.phone}</TableCell>
-                      <TableCell>{member.residence.name}</TableCell>
+                      <TableCell>{member.residence?.name}</TableCell>
                       <TableCell>
                         <Can permissions={[AUTH_PERMISSIONS.MEMBER_VIEW]}>
                           <Link

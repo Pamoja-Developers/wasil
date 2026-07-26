@@ -149,7 +149,7 @@ function MemberResidence({ member }: { member: MemberInfo }) {
         </div>
         <div className="flex-1 flex border-b border-b-slate-300/50 gap-2 items-center">
           <span className="text-sm font-bold">Street: </span>
-          <span className="text-xs">{member.residence.name}</span>
+          <span className="text-xs">{member.residence?.name}</span>
         </div>
       </div>
       <div className="flex items-center gap-1">

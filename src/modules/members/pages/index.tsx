@@ -214,7 +214,7 @@ export default function MembersMainPage() {
                     <TableRow key={index}>
                       <TableCell>{index + 1}</TableCell>
                       <TableCell>{fullName}</TableCell>
-                      <TableCell>{member.residence.name}</TableCell>
+                      <TableCell>{member.residence?.name}</TableCell>
                       <TableCell>{member.email}</TableCell>
                       <TableCell>{member.phone}</TableCell>
                       <TableCell>

@@ -4,16 +4,24 @@ import {
   defaultDashboardFilterValues,
   type DashboardFilterScheamValues,
 } from "../schema/dashboard.filter.schema";
-import { districts, streets, wards } from "../../configs/data";
-import { branches } from "../../organization/types/branch.type";
 import { LuSlidersHorizontal } from "react-icons/lu";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import { AppFormProvider } from "../../../shared/components/form";
-import { AppSelectField } from "../../../shared/components/form/fields/app.select.field";
+import { type SelectOption } from "../../../shared/components/form/fields/app.select.field";
 import { AppDatePicker } from "../../../shared/components/form/fields/date.picker/app.date.picker";
+import DistrictSelectInput from "../../../shared/components/form/inputs/district.select.input";
+import BranchSelectInput from "../../../shared/components/form/inputs/branch.select.input";
+import { useState } from "react";
+import WardSelectInput from "../../../shared/components/form/inputs/ward.select.input";
+import StreetSelectInput from "../../../shared/components/form/inputs/street.select.input";
 
 export default function DashboardFilter() {
+  const [selectedRegion, setSelectedRegion] = useState<string | null>(null);
+  const [selectedDistrict, setSelectedDistrict] = useState<SelectOption | null>(
+    null,
+  );
+  const [selectedWard, setSelectedWard] = useState<SelectOption | null>(null);
   const form = useForm<DashboardFilterScheamValues>({
     resolver: zodResolver(dashboardFilterSchema),
     defaultValues: defaultDashboardFilterValues,
@@ -36,37 +44,56 @@ export default function DashboardFilter() {
         >
           <div className="flex flex-col gap-2 sm:flex-row lg:flex-col">
             <div className="flex-1">
-              <AppSelectField
+              <BranchSelectInput
                 control={form.control}
                 name="branch"
-                placeholder="Select Branch"
-                options={branches}
+                label="Branch/Region"
+                placeholder="Select..."
+                widthClass="w-full"
+                onChange={(option, region) => {
+                  if (!option || !region) return null;
+                  setSelectedRegion(region);
+                }}
               />
             </div>
             <div className="flex-1">
-              <AppSelectField
+              <DistrictSelectInput
                 control={form.control}
+                regionId={selectedRegion ?? ""}
+                label="District"
                 name="district"
-                placeholder="Select District"
-                options={districts}
+                placeholder="Select..."
+                widthClass="w-full"
+                onChange={(option) => {
+                  if (!option) return null;
+                  setSelectedDistrict(option);
+                }}
               />
             </div>
           </div>
           <div className="flex flex-col gap-2 sm:flex-row lg:flex-col">
             <div className="flex-1">
-              <AppSelectField
+              <WardSelectInput
                 control={form.control}
+                districtId={selectedDistrict?.value ?? ""}
+                label="Ward"
                 name="ward"
-                placeholder="Select Wards"
-                options={wards}
+                placeholder="Select..."
+                widthClass="w-full"
+                onChange={(option) => {
+                  if (!option) return null;
+                  setSelectedWard(option);
+                }}
               />
             </div>
             <div className="flex-1">
-              <AppSelectField
+              <StreetSelectInput
                 control={form.control}
+                wardId={selectedWard?.value ?? ""}
                 name="street"
-                placeholder="Select Street"
-                options={streets}
+                label="Street"
+                placeholder="Select..."
+                widthClass="w-full"
               />
             </div>
           </div>

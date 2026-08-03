@@ -1,6 +1,6 @@
 import { AppContentContainer } from "../../../../shared/components/app.content.container";
 import { setPageHeader } from "../../../../utils/general_hooks";
-import BranchOnboardForm from "../../forms/branch.onboard.form";
+import BranchOnboardForm from "../../components/forms/branch.onboard.form";
 import type { Branch } from "../../types/branch.type";
 
 export default function BranchOnboardingPage({ branch }: { branch?: Branch }) {

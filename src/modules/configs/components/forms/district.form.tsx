@@ -1,7 +1,6 @@
 import AppModal from "../../../../shared/components/app.modal";
 import { AppSubmitButton } from "../../../../shared/components/app.button";
 import type { FormModalProps } from "../../../../shared/types/form";
-import { regions } from "../../data";
 import { useForm } from "react-hook-form";
 import {
   defaultDistrictValues,
@@ -11,7 +10,7 @@ import {
 import { zodResolver } from "@hookform/resolvers/zod";
 import { AppFormProvider } from "../../../../shared/components/form";
 import { AppTextField } from "../../../../shared/components/form/fields/app.text.field";
-import { AppSelectField } from "../../../../shared/components/form/fields/app.select.field";
+import RegionSelectInput from "../../../../shared/components/form/inputs/region.select.input";
 
 interface DistrictFormProps extends FormModalProps {}
 
@@ -39,12 +38,11 @@ export function DistrictForm({ isOpen, setIsOpen }: DistrictFormProps) {
           onSubmit={form.handleSubmit(onSubmit)}
           className="w-full mt-2 flex flex-col gap-5"
         >
-          <AppSelectField
+          <RegionSelectInput
             control={form.control}
-            label="Region"
             name="region"
-            placeholder="Select..."
-            options={regions}
+            placeholder="Select Region"
+            widthClass="w-full sm:w-60"
           />
           <AppTextField
             control={form.control}

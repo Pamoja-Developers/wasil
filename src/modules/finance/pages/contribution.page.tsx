@@ -23,7 +23,7 @@ import {
   TableWrapper,
 } from "../../../shared/components/table";
 import { convertStringToDate, formatMoney } from "../../../utils/globals";
-import { LuPlus } from "react-icons/lu";
+import { MdOutlinePayments } from "react-icons/md";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import { AppTextField } from "../../../shared/components/form/fields/app.text.field";
@@ -42,15 +42,11 @@ export default function ContributionMainPage() {
     console.log("FORM DATA::", data);
   }
   return (
-    <AppContentContainer>
-      <AppContentHeader
-      // title="My Contribution"
-      // actions={
-      // }
-      >
+    <AppContentContainer className="min-h-screen">
+      <AppContentHeader title="My Contribution">
         <AppFormProvider {...form}>
           <form onSubmit={form.handleSubmit(onSubmit)} className="w-full my-3">
-            <div className="flex flex-col sm:flex-row sm:gap-3 w-full">
+            <div className="flex flex-col items-center sm:flex-row sm:gap-3 w-full">
               <AppTextField
                 control={form.control}
                 name="receipt"
@@ -72,7 +68,9 @@ export default function ContributionMainPage() {
           <TableCaption className="flex justify-between mb-3">
             <span>My Contribution</span>
             <AppButton size="xs" variant="secondary" onClick={() => {}}>
-              <LuPlus />
+              <div className="flex flex-row items-center gap-1 py-1">
+                <MdOutlinePayments /> Make Contribution
+              </div>
             </AppButton>
           </TableCaption>
           <Table>

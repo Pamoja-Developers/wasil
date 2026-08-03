@@ -2,7 +2,6 @@ import AppModal from "../../../../shared/components/app.modal";
 import { AppSubmitButton } from "../../../../shared/components/app.button";
 
 import type { FormModalProps } from "../../../../shared/types/form";
-import { regions, districts, wards } from "../../data";
 import {
   defaultStreetValues,
   streetSchema,
@@ -11,12 +10,23 @@ import {
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { AppFormProvider } from "../../../../shared/components/form";
-import { AppSelectField } from "../../../../shared/components/form/fields/app.select.field";
+import { type SelectOption } from "../../../../shared/components/form/fields/app.select.field";
 import { AppTextField } from "../../../../shared/components/form/fields/app.text.field";
+import { useState } from "react";
+import DistrictSelectInput from "../../../../shared/components/form/inputs/district.select.input";
+import RegionSelectInput from "../../../../shared/components/form/inputs/region.select.input";
+import WardSelectInput from "../../../../shared/components/form/inputs/ward.select.input";
 
 interface StreetFormProps extends FormModalProps {}
 
 export function StreetForm({ isOpen, setIsOpen }: StreetFormProps) {
+  const [selectedRegion, setSelectedRegion] = useState<SelectOption | null>(
+    null,
+  );
+  const [selectedDistrict, setSelectedDistrict] = useState<SelectOption | null>(
+    null,
+  );
+  const [, setSelectedWard] = useState<SelectOption | null>(null);
   const form = useForm<StreetFormValues>({
     resolver: zodResolver(streetSchema),
     defaultValues: defaultStreetValues,
@@ -39,26 +49,39 @@ export function StreetForm({ isOpen, setIsOpen }: StreetFormProps) {
           onSubmit={form.handleSubmit(onSubmit)}
           className="w-full mt-2 flex flex-col gap-5"
         >
-          <AppSelectField
+          <RegionSelectInput
             control={form.control}
             name="region"
-            label="Region"
-            placeholder="Select..."
-            options={regions}
+            placeholder="Select Region"
+            widthClass="w-full sm:w-60"
+            onChange={(option) => {
+              if (!option) return null;
+              setSelectedRegion(option);
+            }}
           />
-          <AppSelectField
+          <DistrictSelectInput
             control={form.control}
-            name="district"
+            regionId={selectedRegion?.value ?? ""}
             label="District"
+            name="district"
             placeholder="Select..."
-            options={districts}
+            widthClass="w-full"
+            onChange={(option) => {
+              if (!option) return null;
+              setSelectedDistrict(option);
+            }}
           />
-          <AppSelectField
+          <WardSelectInput
             control={form.control}
-            name="ward"
+            districtId={selectedDistrict?.value ?? ""}
             label="Ward"
+            name="ward"
             placeholder="Select..."
-            options={wards}
+            widthClass="w-full"
+            onChange={(option) => {
+              if (!option) return null;
+              setSelectedWard(option);
+            }}
           />
           <AppTextField
             control={form.control}

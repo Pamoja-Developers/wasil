@@ -87,7 +87,7 @@ export const navGroups: NavigationGroup[] = [
         title: "Contribution",
         icon: PiMoneyWavy,
         path: ROUTE_PATHS.finance.contribution,
-        isAvailable: false,
+        isAvailable: true,
       },
       {
         title: "Configs",

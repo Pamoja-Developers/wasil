@@ -22,6 +22,7 @@ export interface BaseFieldProps<T extends FieldValues> {
   className?: string;
   LeadingIcon?: React.ReactNode;
   Suffix?: React.ReactNode;
+  rows?: number;
 }
 type FormFieldContextValue<
   TFieldValues extends FieldValues = FieldValues,

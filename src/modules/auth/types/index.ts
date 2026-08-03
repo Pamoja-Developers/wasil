@@ -1,4 +1,5 @@
 import type { Branch } from "../../organization/types/branch.type";
+import type { Leadership } from "../../organization/types/leadership.type";
 import type { Role } from "../../users/types/role.type";
 
 export interface UserData {
@@ -15,4 +16,5 @@ export interface UserData {
   branch: Branch;
   roles: Role[];
   permissions: string[];
+  leadership?: Leadership;
 }

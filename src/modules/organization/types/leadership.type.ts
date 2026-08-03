@@ -12,6 +12,7 @@ export const LEADERSHIP_CATEGORY = {
 export const LEADERSHIP_TYPE = {
   AMIR: 1,
   ASSISTANT: 2,
+  FINANCE_MANAGER: 3,
 };
 
 interface Station {
@@ -47,8 +48,13 @@ export interface BranchLeader {
 export const leadershipTypes: SelectOption[] = [
   { label: "AMIR", value: `${LEADERSHIP_TYPE.AMIR}` },
   { label: "ASSISTANT", value: `${LEADERSHIP_TYPE.ASSISTANT}` },
+  { label: "FINANCE MANAGER", value: `${LEADERSHIP_TYPE.FINANCE_MANAGER}` },
 ];
 
 export function getLeaderTypeName(type: number) {
-  return type === LEADERSHIP_TYPE.AMIR ? "AMIR" : "ASSISTANT";
+  return type === LEADERSHIP_TYPE.AMIR
+    ? "AMIR"
+    : type === LEADERSHIP_TYPE.ASSISTANT
+      ? "ASSISTANT"
+      : "FINANCE MANAGER";
 }

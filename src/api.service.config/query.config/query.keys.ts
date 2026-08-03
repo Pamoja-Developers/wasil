@@ -26,4 +26,11 @@ export const apiQueryKeys = {
 
   branches: ["branches"] as const,
   branch: (branchId: string) => ["branch", branchId] as const,
+
+  contributionTypes: ["contribution_types"] as const,
+  contributionType: (contributionTypeId: string) =>
+    ["contribution_type", contributionTypeId] as const,
+
+  accounts: ["accounts"] as const,
+  account: (accountId: string) => ["account", accountId] as const,
 };

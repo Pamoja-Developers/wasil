@@ -11,7 +11,7 @@ import {
   contributionFilterSchema,
   defaultContributionFilterValues,
   type ContributionFilterFormValues,
-} from "../types/contribution.filter.for.schema";
+} from "../schema/contribution.filter.for.schema";
 import {
   Table,
   TableBody,

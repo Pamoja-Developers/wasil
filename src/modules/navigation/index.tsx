@@ -10,7 +10,7 @@ import {
   LuUsers,
   LuWallet,
 } from "react-icons/lu";
-import { TbUserScreen } from "react-icons/tb";
+import { TbUserScreen, TbDeviceTabletCog } from "react-icons/tb";
 import { LiaUserShieldSolid } from "react-icons/lia";
 import { FaBuildingUser, FaUsersGear } from "react-icons/fa6";
 
@@ -79,14 +79,22 @@ export const navGroups: NavigationGroup[] = [
       {
         title: "Finance",
         icon: LuWallet,
-        path: ROUTE_PATHS.finance.finance.root,
+        path: ROUTE_PATHS.finance.root,
+        permissions: [AUTH_PERMISSIONS.ACCOUNT_VIEW],
         isAvailable: false,
       },
       {
         title: "Contribution",
         icon: PiMoneyWavy,
-        path: ROUTE_PATHS.finance.finance.contribution,
+        path: ROUTE_PATHS.finance.contribution,
         isAvailable: false,
+      },
+      {
+        title: "Configs",
+        icon: TbDeviceTabletCog,
+        path: ROUTE_PATHS.finance.configs,
+        permissions: [AUTH_PERMISSIONS.ACCOUNT_VIEW],
+        isAvailable: true,
       },
     ],
   },

@@ -70,6 +70,30 @@ export const AUTH_PERMISSIONS = {
   LEADERSHIP_CHANGE: "change_leadership",
   LEADERSHIP_DELETE: "delete_leadership",
   LEADERSHIP_VIEW: "view_leadership",
+
+  // FINANCIAL ACOOUNT PERMISSIONS
+  ACCOUNT_ADD: "add_financialaccount",
+  ACCOUNT_CHANGE: "change_financialaccount",
+  ACCOUNT_DELETE: "delete_financialaccount",
+  ACCOUNT_VIEW: "view_financialaccount",
+
+  // FINANCIAL ACOOUNT PERMISSIONS
+  CONTRIBUTION_TYPE_ADD: "add_contributiontype",
+  CONTRIBUTION_TYPE_CHANGE: "change_contributiontype",
+  CONTRIBUTION_TYPE_DELETE: "delete_contributiontype",
+  CONTRIBUTION_TYPE_VIEW: "view_contributiontype",
+
+  // // LEDGER PERMISSIONS
+  // LEDGER_ADD: "add_financialaccount",
+  // LEDGER_CHANGE: "change_financialaccount",
+  // LEDGER_DELETE: "delete_financialaccount",
+  // LEDGER_VIEW: "view_financialaccount",
+
+  // // WALLET PERMISSIONS
+  // WALLET_ADD: "add_financialaccount",
+  // WALLET_CHANGE: "change_financialaccount",
+  // WALLET_DELETE: "delete_financialaccount",
+  // WALLET_VIEW: "view_financialaccount",
 };
 
 export type AuthPermission =

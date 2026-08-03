@@ -27,6 +27,7 @@ import ResetPasswordPage from "../auth/pages/reset.password.page";
 import Unauthorised from "../navigation/components/unauthorised";
 import { AUTH_PERMISSIONS } from "../auth/types/permissions";
 import { AUTH_ROLES } from "../auth/types/roles";
+import FinanceConfigsPage from "../finance/pages/finance.configs.page";
 
 export const router: RouteConfig[] = [
   {
@@ -157,13 +158,26 @@ export const router: RouteConfig[] = [
       // Finance
       {
         title: "Finance",
-        path: ROUTE_PATHS.finance.finance.root,
-        element: <FinanceMainPage />,
+        path: ROUTE_PATHS.finance.root,
+        element: (
+          <AppProtectedRoute permissions={[AUTH_PERMISSIONS.ACCOUNT_VIEW]}>
+            <FinanceMainPage />
+          </AppProtectedRoute>
+        ),
       },
       {
         title: "Contribution",
-        path: ROUTE_PATHS.finance.finance.contribution,
+        path: ROUTE_PATHS.finance.contribution,
         element: <ContributionMainPage />,
+      },
+      {
+        title: "Finance Configs",
+        path: ROUTE_PATHS.finance.configs,
+        element: (
+          <AppProtectedRoute permissions={[AUTH_PERMISSIONS.ACCOUNT_VIEW]}>
+            <FinanceConfigsPage />
+          </AppProtectedRoute>
+        ),
       },
       // Users
       {

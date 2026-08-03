@@ -62,10 +62,9 @@ export const ROUTE_PATHS = {
   },
 
   finance: {
-    finance: {
-      root: `${financeBase}`,
-      contribution: `${contributionBase}`,
-    },
+    root: `${financeBase}`,
+    contribution: `${contributionBase}`,
+    configs: `${financeBase}/configs`,
   },
 
   users: {

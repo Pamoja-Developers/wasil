@@ -85,7 +85,7 @@ export function AppSubmitButton({
       size={size}
       loading={loading}
       disabled={loading}
-      className={`min-w-32 h-9 p-0 ${className}`}
+      className={cn("min-w-32 h-9 p-0", className)}
     >
       {loading ? <AppSpinner /> : label}
     </AppButton>

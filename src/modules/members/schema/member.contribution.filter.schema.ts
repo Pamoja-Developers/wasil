@@ -1,6 +1,7 @@
-import z from "zod";
+import z, { string } from "zod";
 
 export const memberContributionFilterSchema = z.object({
+  member_id: string().trim(),
   receipt: z.string().trim(),
 });
 
@@ -10,5 +11,6 @@ export type MemberContributionFilterFormValues = z.infer<
 
 export const defaultMemberContributionFilterFormValues: MemberContributionFilterFormValues =
   {
+    member_id: "",
     receipt: "",
   };

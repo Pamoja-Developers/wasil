@@ -43,6 +43,7 @@ export default function ContributionTypeForm({
       return {
         type_id: contributionType.type_id,
         name: contributionType.name,
+        amount: contributionType.amount.toString(),
         account: contributionType.account.account_id,
         description: contributionType.description,
         is_recurring: contributionType.is_recurring,
@@ -112,6 +113,12 @@ export default function ContributionTypeForm({
             label="Finance Account"
             placeholder="Select..."
             widthClass="w-full"
+          />
+          <AppTextField
+            control={form.control}
+            label="Default Amount"
+            name="amount"
+            placeholder="In Tsh."
           />
           <AppTextAreaField
             control={form.control}

@@ -69,6 +69,7 @@ export default function ContributionTypeSection() {
       const accountFormValues: ContributionTypeFormValues = {
         type_id: selectedContributionType.type_id,
         name: selectedContributionType.name,
+        amount: selectedContributionType.amount.toString(),
         is_active: !selectedContributionType.is_active,
         account: selectedContributionType.account.account_id,
         description: selectedContributionType.description,

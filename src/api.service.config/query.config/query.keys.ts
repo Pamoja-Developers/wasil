@@ -33,4 +33,8 @@ export const apiQueryKeys = {
 
   accounts: ["accounts"] as const,
   account: (accountId: string) => ["account", accountId] as const,
+
+  contributions: ["contributions"] as const,
+  contribution: (contributionId: string) =>
+    ["contribution", contributionId] as const,
 };

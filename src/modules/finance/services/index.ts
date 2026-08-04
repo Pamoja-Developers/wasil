@@ -13,6 +13,10 @@ const FinanceServiceEndpoint = {
     get: `${FINANCE_BASE_URL}/get-contribution-types`,
     update: `${FINANCE_BASE_URL}/update-contribution-type`,
   },
+  contribution: {
+    add: `${FINANCE_BASE_URL}/make-contribution`,
+    get: `${FINANCE_BASE_URL}/get-member-contributions`,
+  },
 };
 
 export default FinanceServiceEndpoint;

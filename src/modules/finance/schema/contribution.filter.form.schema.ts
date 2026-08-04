@@ -1,8 +1,9 @@
-import z from "zod";
+import z, { string } from "zod";
 
 export const contributionFilterSchema = z.object({
-  date: z.string().trim(),
-  receipt: z.string().trim(),
+  member_id: string().trim().nonoptional(),
+  date: z.string().trim().optional(),
+  receipt: z.string().trim().optional(),
 });
 
 export type ContributionFilterFormValues = z.infer<
@@ -10,6 +11,7 @@ export type ContributionFilterFormValues = z.infer<
 >;
 
 export const defaultContributionFilterValues: ContributionFilterFormValues = {
+  member_id: "",
   date: "",
   receipt: "",
 };

@@ -7,6 +7,13 @@ import {
   FormMessage,
   type BaseFieldProps,
 } from "..";
+import { cn } from "../../../../utils/cn";
+
+interface TextFieldProps<T extends FieldValues> extends BaseFieldProps<T> {
+  onChange?: (value: string | null) => void | null;
+  readOnly?: boolean;
+  value?: string;
+}
 
 export function AppTextField<T extends FieldValues>({
   name,
@@ -16,7 +23,11 @@ export function AppTextField<T extends FieldValues>({
   control,
   LeadingIcon,
   Suffix,
-}: BaseFieldProps<T>) {
+  className,
+  value,
+  readOnly = false,
+  onChange,
+}: TextFieldProps<T>) {
   return (
     <FormField
       control={control}
@@ -25,12 +36,23 @@ export function AppTextField<T extends FieldValues>({
         <FormItem>
           <FormLabel>{label}</FormLabel>
           <FormControl>
-            <div className="w-full h-10 flex items-center gap-3 rounded-xl bg-slate-300/30 border border-slate-300 px-4 focus-within:border-[#182f81] focus-within:ring-1 focus-within:ring-[#182f81] transition">
+            <div
+              className={cn(
+                "w-full h-10 flex items-center gap-3 rounded-xl bg-slate-300/30 border border-slate-300 px-4 focus-within:border-[#182f81] focus-within:ring-1 focus-within:ring-[#182f81] transition",
+                className,
+              )}
+            >
               {LeadingIcon}
               <input
                 {...field}
                 type={type}
+                value={value ?? field.value}
+                readOnly={readOnly}
                 placeholder={placeholder}
+                onChange={(e) => {
+                  field.onChange(e);
+                  onChange?.(e.target.value);
+                }}
                 className="w-full bg-transparent text-xs text-gray-800 placeholder:text-gray-400 outline-none"
               />
               {Suffix}

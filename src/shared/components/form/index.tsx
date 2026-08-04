@@ -17,8 +17,8 @@ export interface BaseFieldProps<T extends FieldValues> {
   label?: string;
   placeholder?: string;
   disabled?: boolean;
-  control: Control<T, any, T>;
-  type?: "text" | "email" | "password" | "url" | "tel";
+  control?: Control<T, any, T>;
+  type?: "text" | "email" | "password" | "url" | "tel" | "number";
   className?: string;
   LeadingIcon?: React.ReactNode;
   Suffix?: React.ReactNode;

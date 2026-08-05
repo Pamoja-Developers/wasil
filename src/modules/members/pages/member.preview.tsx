@@ -18,6 +18,7 @@ import MemberContributionSection from "../components/member.contribution.section
 import { LuBanknote, LuMapPinHouse } from "react-icons/lu";
 import { useMutation } from "@tanstack/react-query";
 import MemberServices from "../services/member.services";
+import { LoadingContent } from "../../../shared/components/progress";
 
 export default function MemberPreviewPage() {
   const { memberId } = useParams();
@@ -63,8 +64,9 @@ export default function MemberPreviewPage() {
       await memberMutation.mutateAsync(memberId);
     })();
   }, [memberId]);
-
-  if (memberResponseMsg || member == null) {
+  if (memberMutation.isPending) {
+    return <LoadingContent />;
+  } else if (memberResponseMsg || member == null) {
     return (
       <NotFound
         isContent={true}

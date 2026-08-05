@@ -148,85 +148,13 @@ export function TableCaption({
 }
 
 export function LoadingTableBody({ columns }: { columns: number }) {
-  return (
-    <>
-      <TableRow>
-        {Array.from({ length: columns }).map((_, index) => (
-          <TableCell key={index}>
-            <div className="w-full h-2 rounded-full bg-slate-200"></div>
-          </TableCell>
-        ))}
-      </TableRow>
-      <TableRow>
-        {Array.from({ length: columns }).map((_, index) => (
-          <TableCell key={index}>
-            <div className="w-full h-2 rounded-full bg-slate-200"></div>
-          </TableCell>
-        ))}
-      </TableRow>
-      <TableRow>
-        {Array.from({ length: columns }).map((_, index) => (
-          <TableCell key={index}>
-            <div className="w-full h-2 rounded-full bg-slate-200"></div>
-          </TableCell>
-        ))}
-      </TableRow>
-      <TableRow>
-        {Array.from({ length: columns }).map((_, index) => (
-          <TableCell key={index}>
-            <div className="w-full h-2 rounded-full bg-slate-200"></div>
-          </TableCell>
-        ))}
-      </TableRow>
-      <TableRow>
-        {Array.from({ length: columns }).map((_, index) => (
-          <TableCell key={index}>
-            <div className="w-full h-2 rounded-full bg-slate-200"></div>
-          </TableCell>
-        ))}
-      </TableRow>
-      <TableRow>
-        {Array.from({ length: columns }).map((_, index) => (
-          <TableCell key={index}>
-            <div className="w-full h-2 rounded-full bg-slate-200"></div>
-          </TableCell>
-        ))}
-      </TableRow>
-      <TableRow>
-        {Array.from({ length: columns }).map((_, index) => (
-          <TableCell key={index}>
-            <div className="w-full h-2 rounded-full bg-slate-200"></div>
-          </TableCell>
-        ))}
-      </TableRow>
-      <TableRow>
-        {Array.from({ length: columns }).map((_, index) => (
-          <TableCell key={index}>
-            <div className="w-full h-2 rounded-full bg-slate-200"></div>
-          </TableCell>
-        ))}
-      </TableRow>
-      <TableRow>
-        {Array.from({ length: columns }).map((_, index) => (
-          <TableCell key={index}>
-            <div className="w-full h-2 rounded-full bg-slate-200"></div>
-          </TableCell>
-        ))}
-      </TableRow>
-      <TableRow>
-        {Array.from({ length: columns }).map((_, index) => (
-          <TableCell key={index}>
-            <div className="w-full h-2 rounded-full bg-slate-200"></div>
-          </TableCell>
-        ))}
-      </TableRow>
-      <TableRow>
-        {Array.from({ length: columns }).map((_, index) => (
-          <TableCell key={index}>
-            <div className="w-full h-2 rounded-full bg-slate-200"></div>
-          </TableCell>
-        ))}
-      </TableRow>
-    </>
-  );
+  return Array.from({ length: 10 }).map((_, rowIndex) => (
+    <TableRow key={rowIndex}>
+      {Array.from({ length: columns }).map((_, index) => (
+        <TableCell key={index}>
+          <div className="w-full h-2 rounded-full bg-slate-200"></div>
+        </TableCell>
+      ))}
+    </TableRow>
+  ));
 }
